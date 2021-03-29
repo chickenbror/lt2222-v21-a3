@@ -1,0 +1,52 @@
+Introduction
+The written Swedish language has the following inventory of lowercase vowels characters: a, e, i, o, u, y, å¸ ä, ö, é.  The Evil Vowel Fairy is threatening to magically steal the vowels from Swedish texts, replacing them with blank symbols.  Before the Fairy does that, your mission is to create a system that automatically puts the vowels back, rendering the evil plan fruitless.  The most important text that the Evil Vowel Fairy is targeting are a group of newspaper articles written in the 19th century currently hosted by Språkbanken, because the Evil Vowel Fairy has some deranged plan involving the 19th century.
+
+(These newspaper articles have a bunch of other, now-archaic or foreign vowels that the Fairy is not interested in and you will ignore.)
+
+There is a secret agent who has helped by writing some scripts to train a vowel prediction model, but that agent has written the scripts a little cryptically to make it hard for the Fairy, who doesn't really understand computers but it never hurts to be make sure.
+
+Every part of this assignment that involves Python scripting needs to be done on the bash command line on mltgpu or eduserv.  Include your name in README.md.
+
+This assignment is due Monday, March 29, 2021 at 9:00.  There are 31 points on this assignment, plus opportunity for 22 bonus points.
+
+Preparation
+Fork and clone the GitHub repository: https://github.com/asayeed/lt2222-v21-a3 (Links to an external site.)
+
+There will be three files, train.py, model.py, and README.md.  You will write your responses to whatever needs text responses plus other comments and instructions in README.md.
+
+The texts are available at
+
+/home/xsayas@GU.GU.SE/scratch/lt2222-v21-resources/svtrain.lower.txt -- training
+/home/xsayas@GU.GU.SE/scratch/lt2222-v21-resources/svtest.lower.txt -- test/evaluation
+
+Part 1: Figure out train.py (8 points)
+train.py is already complete, and you will not modify it. Instead, in README.md, you will explain what the functions a, b, and g do, as well as the meaning of the command-line arguments that are being processed via the argparse module.
+
+You will then run train.py on the training file.  train.py will save a model.
+
+Part 2: Write eval.py (15 points)
+Write eval.py and add it to the repository.  What eval.py will do from the command line:
+
+Load a model produced by train.py. (Take a look at model.py.)
+Load the test data.
+Create evaluation instances compatible with the training instances.  (A simplifying assumption for the purposes of the assignment: assuming that the neighbouring vowels are known as though the Fairy hadn't stolen them.)
+Use the model to predict instances.
+Write the text with the predicted (as opposed to the real) vowels back into an output file.
+Print the accuracy of the model to the terminal.
+Part 3: Analysis (8 points)
+Describe what you do in README.md.  Train and evaluate the following models:
+
+Five different variations of the --k option, holding the --e option at its default.
+Five different variations of the --e option, holding the --k option at its default.
+Include the best model and output text in your repository with its parameters.  Describe any patterns you see, if there are any.  Look at the output texts and make qualitative comments on the performances of the model.
+
+It is very likely that in this very simple model, for this amount of data, nothing will work very well.  Nevertheless, do your best to draw whatever tentative conclusions you can.
+
+Bonus Part A: Perplexity (4 points)
+Add the option in the eval.py script to compute the perplexity of the model.  Document in README.md and include perplexity values for the experiments in part 3.
+
+Bonus Part B: Sequence (15 points)
+Include new versions of train.py, model.py, and eval.py that do not include the assumption that neighbouring vowels are known, but rather works in sequence so that the model-predicted previous vowels are known, but future vowels are not. Systematically evaluate accuracy and describe in README.py
+
+Bonus Part C: Dropout (3 points)
+Make a new version of model.py (and corresponding train.py and eval.py as necessary) that includes dropout in the model.  Systematically evaluate accuracy and describe in README.py.
