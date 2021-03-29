@@ -36,7 +36,50 @@ Returns:
 
 ## Part 2
 
+In CLI:
+
+python3 eval.py MODEL.pt TEST_DATA.txt DESTINATION.txt
+
+All three functions from train.py were copied and pasted (with variable names changed for better readability) to eval.py to train to process the text and return a list of vowels' context-features as done in train.py. 
+The difference is that the vocabulary sizes are not the same, so b() would take the vocab of train data as its parameter instead to give the one-shot vectors the same length. Also there are some char-tokens that exist only in either train or test data, so that a zeros array only becomes a one-hot vector on the condition that the given char-token exists in the train data vocab.
+
+
 ## Part 3
+
+#### Varying k and holding r:
+HiddenSize (k)= 50; Epochs (r)= 100
+Accuracy: 21.767599046498294 %
+
+HiddenSize (k)= 100; Epochs (r)= 100
+Accuracy: 29.305090371443228 %
+
+HiddenSize (k)= 200; Epochs (r)= 100
+Accuracy: 39.627651549440266 %
+
+HiddenSize (k)= 400; Epochs (r)= 100
+Accuracy: 26.70408255635014 %
+
+HiddenSize (k)= 800; Epochs (r)= 100
+Accuracy: 9.666274403307082 %
+
+
+#### Holding k and varying r:
+HiddenSize (k)= 200; Epochs (r)= 50
+Accuracy: 31.458012733472135 %
+
+HiddenSize (k)= 200; Epochs (r)= 100
+Accuracy: 39.627651549440266 %
+
+HiddenSize (k)= 200; Epochs (r)= 200
+Accuracy: 30.754956096677834 %
+
+HiddenSize (k)= 200; Epochs (r)= 400
+Accuracy: 11.772426903231645 %
+
+HiddenSize (k)= 200; Epochs (r)= 800
+Accuracy: 5.162789294227694 %
+
+In both cases, the accuracy rates increased and then drop significantly low (with rendered the resulting texts jibberish-like). It appears that with increase epochs, the models get better at predicting the vowel from the neighboring characters, but also starts to overfit and thus making the wrong prediction at very high epochs. Also, similar to the observation from Assignment2, the more frequent vowels were better predicted (eg, 'é' only occurs 58 times in test text while 'a' occurs 16640 times). Common features patterns, ie, the context of common stop words, also were better predicted. 
 
 ## Bonuses
 

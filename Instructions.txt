@@ -33,6 +33,8 @@ Create evaluation instances compatible with the training instances.  (A simplify
 Use the model to predict instances.
 Write the text with the predicted (as opposed to the real) vowels back into an output file.
 Print the accuracy of the model to the terminal.
+
+
 Part 3: Analysis (8 points)
 Describe what you do in README.md.  Train and evaluate the following models:
 
