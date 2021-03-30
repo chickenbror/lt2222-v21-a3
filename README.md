@@ -1,6 +1,7 @@
+
 # LT2222 V21 Assignment 3
 
-Your name:
+Your name: Hsien-hao Liao
 
 ## Part 1
 
@@ -9,7 +10,7 @@ Reads a text file and returns a two-value tuple: a list of char-tokens & a list 
 Arg: 
     f: string representing the filepath/filename.
 Returns:
-    The abovementioned tuple of two lists. List1 has doubled start/end '<s>' and '<e>' tokens plus all char-tokens, whereas the List2 has single start/end tokens plus non-repeating char-tokens (ie the vocab-list).
+    The abovementioned tuple of two lists. List1 has doubled start/end \<s> and \<e> tokens plus all char-tokens, whereas the List2 has single start/end tokens plus non-repeating char-tokens (ie the vocab-list).
 
 #### g(x,p):
 Takes a token and a vocab-list, and returns a numpy array that represents a one-hot vector.
@@ -38,7 +39,7 @@ Returns:
 
 In CLI:
 
-python3 eval.py MODEL.pt TEST_DATA.txt DESTINATION.txt
+	python3 eval.py MODEL.pt TEST_DATA.txt DESTINATION.txt
 
 All three functions from train.py were copied and pasted (with variable names changed for better readability) to eval.py to train to process the text and return a list of vowels' context-features as done in train.py. 
 The difference is that the vocabulary sizes are not the same, so b() would take the vocab of train data as its parameter instead to give the one-shot vectors the same length. Also there are some char-tokens that exist only in either train or test data, so that a zeros array only becomes a one-hot vector on the condition that the given char-token exists in the train data vocab.
