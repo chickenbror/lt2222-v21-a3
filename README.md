@@ -22,6 +22,7 @@ Takes a token and a vocab-list, and returns a numpy array that represents a one-
 Args: 
 
    x: a char-token
+   
    p: a vocab-list which includes x
     
 Returns: 
@@ -34,6 +35,7 @@ Loops over every char-token returned by a() and looks for vowels. Returns a list
 Args: 
 
    u: a list of char-tokens which function a(textfile) returned
+   
    p: a list of non-repeating char-tokens which function a(textfile) returned (ie, the vocab of textfile, in the sense that each vocab is a char )
 
 Returns: 
